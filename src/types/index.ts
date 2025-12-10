@@ -1,10 +1,10 @@
 // Базовые типы данных
-export interface City {
-  id: number;
-  name: string;
-  nameKz?: string;
-  timezone: string;
-}
+export type City = {
+id: number;
+name: string;
+nameKz: string;
+timezone: string;
+};
 
 export interface Station {
   id: number;

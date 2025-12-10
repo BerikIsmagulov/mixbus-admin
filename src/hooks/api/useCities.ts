@@ -1,6 +1,7 @@
+// 📁 src/hooks/api/useCities.ts
 import { useState, useEffect } from 'react';
 import apiClient from '../../api/client';
-import { City } from '../../types';
+import type { City } from '../../types/index.ts';
 
 export const useCities = () => {
   const [cities, setCities] = useState<City[]>([]);
@@ -24,7 +25,6 @@ export const useCities = () => {
   const createCity = async (cityData: Omit<City, 'id'>) => {
     try {
       const response = await apiClient.post('/cities', cityData);
-      await fetchCities(); // Обновляем список
       return { success: true, data: response.data };
     } catch (err: any) {
       return { 
@@ -34,10 +34,21 @@ export const useCities = () => {
     }
   };
 
+  const createCitiesBulk = async (cities: Omit<City, 'id'>[]) => {
+    try {
+      const response = await apiClient.post('/cities/bulk', cities);
+      return { success: true, count: response.data.count };
+    } catch (err: any) {
+      return {
+        success: false,
+        error: err.response?.data?.error || 'Ошибка массовой загрузки'
+      };
+    }
+  };
+
   const updateCity = async (id: number, cityData: Partial<City>) => {
     try {
       const response = await apiClient.put(`/cities/${id}`, cityData);
-      await fetchCities(); // Обновляем список
       return { success: true, data: response.data };
     } catch (err: any) {
       return { 
@@ -50,7 +61,6 @@ export const useCities = () => {
   const deleteCity = async (id: number) => {
     try {
       await apiClient.delete(`/cities/${id}`);
-      await fetchCities(); // Обновляем список
       return { success: true };
     } catch (err: any) {
       return { 
@@ -70,6 +80,7 @@ export const useCities = () => {
     error,
     fetchCities,
     createCity,
+    createCitiesBulk,
     updateCity,
     deleteCity,
   };
