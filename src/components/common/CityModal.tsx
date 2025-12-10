@@ -1,7 +1,7 @@
+// 📁 src/components/common/CityModal.tsx
 import React, { useState, useEffect } from 'react';
-import { X, MapPin } from 'lucide-react';
+import { X } from 'lucide-react';
 
-// Временный тип
 interface City {
   id: number;
   name: string;
@@ -65,7 +65,7 @@ const CityModal: React.FC<CityModalProps> = ({
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
-                className="w-full px-3 py-2 border rounded-lg"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-400"
                 required
               />
             </div>
@@ -75,15 +75,32 @@ const CityModal: React.FC<CityModalProps> = ({
                 type="text"
                 value={formData.nameKz}
                 onChange={(e) => setFormData({...formData, nameKz: e.target.value})}
-                className="w-full px-3 py-2 border rounded-lg"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-400"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Часовой пояс</label>
+              <input
+                type="text"
+                value={formData.timezone}
+                onChange={(e) => setFormData({...formData, timezone: e.target.value})}
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-400"
               />
             </div>
           </div>
+
           <div className="mt-6 flex justify-end space-x-3">
-            <button type="button" onClick={onClose} className="px-4 py-2 border rounded-lg">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-4 py-2 border rounded-lg hover:bg-gray-100"
+            >
               Отмена
             </button>
-            <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-lg">
+            <button
+              type="submit"
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            >
               Сохранить
             </button>
           </div>

@@ -8,6 +8,7 @@ const Layout: React.FC = () => {
   const navigation = [
     { name: 'Дашборд', href: '/', icon: Home },
     { name: 'Города', href: '/cities', icon: MapPin },
+    { name: 'Станции', href: '/stations', icon: MapPin },
     { name: 'Автобусы', href: '/buses', icon: Bus },
     { name: 'Маршруты', href: '/routes', icon: Route },
     { name: 'Рейсы', href: '/trips', icon: Calendar },
