@@ -40,22 +40,51 @@ export interface Route {
   arrivalCity: City;
 }
 
+export interface RouteFormData {
+  departureCityId: number;
+  arrivalCityId: number;
+  distance: number;
+  estimatedDuration: number;
+}
+
+
 export interface Trip {
   id: number;
   routeId: number;
   busId: number;
   departureTime: string;
   arrivalTime: string;
-  price: number;
+price: number;
+  status: 'SCHEDULED' | 'DELAYED' |'CANCELLED' | 'COMPLETED';
   availableSeats: number;
-  status: 'SCHEDULED' | 'ONGOING' | 'COMPLETED' | 'CANCELLED' | 'DELAYED';
-  createdAt: string;
-  updatedAt: string;
-  route: Route;
-  bus: Bus;
-  bookedSeats?: string[];
-  availableSeatsCount?: number;
-  seatMap?: any[];
+  bookedSeats: string[];
+  availableSeatsCount: number;
+  route?: {
+    id: number;
+    departureCityId: number;
+    arrivalCityId: number;
+    distance: number;
+    estimatedDuration: number;
+    departureCity: {
+      id: number;
+      name: string;
+      nameKz: string;
+      timezone: string;
+    };
+    arrivalCity: {
+      id: number;
+      name: string;
+      nameKz: string;
+      timezone: string;
+    };
+  };
+  bus?: {
+    id: number;
+    numberPlate: string;
+    model: string;
+    totalSeats: number;
+    amenities: string[];
+  };
 }
 
 export interface Booking {
