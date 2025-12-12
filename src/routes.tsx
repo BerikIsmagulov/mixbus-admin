@@ -2,8 +2,12 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import DashboardPage from './pages/dashboard/Dashboard';
 import CitiesPage from './pages/cities/CitiesPage';
+import BusesPage from './pages/buses/BusesPage';
 import TripsPage from './pages/trips/TripsPage';
 import StationsPage from './pages/stations/StationsPage';
+import RoutesPage from './pages/routes/RoutesPage';
+
+
 
 const AppRoutes = () => {
   return (
@@ -15,8 +19,10 @@ const AppRoutes = () => {
       <Route element={<Layout />}>
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/cities" element={<CitiesPage />} />
+        <Route path="/buses" element={<BusesPage />} />
         <Route path="/trips" element={<TripsPage />} />
         <Route path="stations" element={<StationsPage />} />
+        <Route path="/routes" element={<RoutesPage />} />
       </Route>
     </Routes>
   );
