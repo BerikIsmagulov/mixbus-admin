@@ -6,6 +6,8 @@ import BusesPage from './pages/buses/BusesPage';
 import TripsPage from './pages/trips/TripsPage';
 import StationsPage from './pages/stations/StationsPage';
 import RoutesPage from './pages/routes/RoutesPage';
+import BookingsPage from './pages/bookings/BookingsPage';
+import UsersPage from './pages/users/UsersPage';
 
 
 
@@ -23,6 +25,8 @@ const AppRoutes = () => {
         <Route path="/trips" element={<TripsPage />} />
         <Route path="stations" element={<StationsPage />} />
         <Route path="/routes" element={<RoutesPage />} />
+        <Route path="/bookings" element={<BookingsPage />} />
+        <Route path="/users" element={<UsersPage />} />
       </Route>
     </Routes>
   );

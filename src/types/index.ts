@@ -87,6 +87,14 @@ price: number;
   };
 }
 
+export interface User {
+  id: number;
+  email: string;
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+}
+
 export interface Booking {
   id: number;
   userId: number;

@@ -13,6 +13,7 @@ const Layout: React.FC = () => {
     { name: 'Маршруты', href: '/routes', icon: Route },
     { name: 'Рейсы', href: '/trips', icon: Calendar },
     { name: 'Бронирования', href: '/bookings', icon: Ticket },
+    { name: 'Пользователи', href: '/users', icon: Users },
   ];
 
   return (
